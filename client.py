@@ -86,8 +86,8 @@ def main():
 
         # draw players
         for p in game.player_list:
-            pygame.draw.circle(screen, p.color, (p.x, p.y), p.r + 2)
-            pygame.draw.circle(screen, (255, 0, 0), (p.x, p.y), p.r)
+            pygame.draw.circle(screen, (255, 0, 0), (p.x, p.y), p.r + 2)
+            pygame.draw.circle(screen, p.color, (p.x, p.y), p.r)
 
         pygame.display.flip()
 

@@ -49,7 +49,8 @@ def main():
                 conn.sendall(pickle.dumps(game))
             except:
                 break
-        game.player_list.remove(player)
+        if player in game.player_list:
+            game.player_list.remove(player)
         print("Lost connection")
         conn.close()
 

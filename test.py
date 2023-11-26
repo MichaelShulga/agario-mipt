@@ -15,5 +15,6 @@ class TestServer(unittest.TestCase):
             with self.assertRaises(SystemExit):
                 server.main()
 
+
 if __name__ == '__main__':
     unittest.main()
