@@ -7,11 +7,37 @@ import pygame
 
 
 class Client:
+    """
+    A client for handling socket connections and data transmission.
+
+    Attributes:
+        sock (socket.socket): The socket object used for network communication.
+
+    Methods:
+        __init__(host, port): Initializes the client's socket and connects to the specified host and port.
+        send(data): Sends data to the server and waits for a response.
+    """
     def __init__(self, host, port):
+        """
+        Initialize a new Client instance and establish a socket connection.
+
+        Args:
+            host (str): The host name or IP address to connect to.
+            port (int): The port number to connect on.
+        """
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         self.sock.connect((host, port))
 
     def send(self, data):
+        """
+        Send data to the server and receive a response.
+
+        Args:
+            data: The data to be sent to the server.
+
+        Returns:
+            The response received from the server.
+        """
         self.sock.send(pickle.dumps(data))
         return pickle.loads(self.sock.recv(2048))
 
